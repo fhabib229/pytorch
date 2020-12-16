@@ -29,6 +29,7 @@ struct CAFFE2_API OpaqueTensorImpl : public TensorImpl {
         opaque_handle_(std::move(opaque_handle)) {
     sizes_ = sizes.vec();
     refresh_numel();
+    refresh_contiguous();
   }
 
   void release_resources() override {
